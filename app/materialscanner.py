@@ -14,7 +14,10 @@ def scan():
     script_path = os.path.expanduser("~/speckler_maxer/scripts/pi_one_snapshot.sh")
     result = subprocess.run([script_path, image_path], capture_output=True, text=True)
 
-    saved_path = result.stdout.strip()
-    print("Image saved at:", saved_path)
+    # print(f"result: {result}")
+    # saved_path = result.stdout.strip()
+    # print("Image saved at:", saved_path)
 
-    return eval.classify_single_image(saved_path)
+    print(f"Image saved at {image_path}")
+
+    return eval.classify_single_image(image_path)
