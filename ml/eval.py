@@ -1,11 +1,13 @@
 import tensorflow as tf
 import numpy as np
-import config
 from tensorflow.keras.utils import load_img, img_to_array
+from ml import config
 
-model = tf.keras.models.load_model(config.MODEL_PATH)
+
 
 def classify_single_image(image_path):
+    print(f"Modelpath: {config.MODEL_PATH}")
+    model = tf.keras.models.load_model(config.MODEL_PATH)
     img = load_img(image_path, target_size=(224, 224))
     img_array = img_to_array(img)
     img_array = np.expand_dims(img_array, axis=0)
@@ -19,6 +21,8 @@ def classify_single_image(image_path):
 
 def evaluate_image(IMAGE_DIR):
 
+    print(f"Modelpath: {config.MODEL_PATH}")
+    model = tf.keras.models.load_model(config.MODEL_PATH)
     ds = tf.keras.utils.image_dataset_from_directory(
         IMAGE_DIR,
         labels = None,
@@ -39,6 +43,6 @@ def evaluate_image(IMAGE_DIR):
         print(f"Image: {filename} | Predicted Class: {config.CLASS_LABELS[predicted_class]} | Confidence: {confidence:.2f}%")
 
 
-print(f"Classify images in {config.EVAL_IMAGE_DIR}")
-evaluate_image(config.EVAL_IMAGE_DIR)
+# print(f"Classify images in {config.EVAL_IMAGE_DIR}")
+# evaluate_image(config.EVAL_IMAGE_DIR)
 

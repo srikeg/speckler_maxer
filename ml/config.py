@@ -1,5 +1,7 @@
 # Model path
-MODEL_PATH = "output/model.keras"
+
+# MODEL_PATH = "output/model.keras"
+MODEL_PATH = "/home/StefanieGirod/speckler_maxer/output/model.keras"
 
 # Training data directory
 TRAININGS_DATA_DIR = "trainings_data2"

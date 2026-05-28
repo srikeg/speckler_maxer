@@ -1,6 +1,6 @@
 # logic.py
 import os
-from csv_handler import CSVHandler
+from .csv_handler import CSVHandler
 
 
 def get_material_parameters(

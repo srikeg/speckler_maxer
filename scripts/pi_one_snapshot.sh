@@ -1,9 +1,10 @@
 #!/bin/bash
-# Take one raw full-scale snapshot without opening the GUI and save it on the Desktop (snapshots folder)
 
-# Ensure output directory on Desktop exists
-mkdir -p "$HOME/Desktop/test2"
+OUTDIR="$HOME/Desktop/images"
+TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
+FILEPATH="$OUTDIR/snapshot_$TIMESTAMP.jpg"
 
+mkdir -p "$OUTDIR"
 
 rpicam-still \
 --awb custom \
@@ -12,4 +13,4 @@ rpicam-still \
 --height 256 \
 --awbgains 1,1 \
 -t 1 \
--o "$HOME/Desktop/test2/test.jpg"
+-o "$FILEPATH"

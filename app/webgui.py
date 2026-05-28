@@ -1,15 +1,17 @@
 # webgui.py
 import os
 from flask import Flask, render_template_string, request
-from logic import get_material_parameters
-from csv_handler import CSVHandler
-from label import generate_material_qr
+from .logic import get_material_parameters
+from .csv_handler import CSVHandler
+from .label import generate_material_qr
+from .materialscanner import scan as call_material_scanner
 
-try:
-    from Materialscanner import scan as call_material_scanner
-except ImportError:
-    def call_material_scanner():
-        return "Unbekanntes_Material"
+# try:
+#     from Materialscanner import scan as call_material_scanner
+# except ImportError:
+#     def call_material_scanner():
+#         predicted_materil = 
+#         return "Unbekanntes_Material"
 
 app = Flask(__name__)
 
