@@ -17,7 +17,10 @@ def classify_single_image(image_path):
     confidence = np.max(prediction) * 100
 
     print(f"Image: {image_path.split('/')[-1]} | Predicted Class: {config.CLASS_LABELS[predicted_class]} | Confidence: {confidence:.2f}%")
-    return config.CLASS_LABELS[predicted_class]
+    label = config.CLASS_LABELS[predicted_class]
+    label_conf = f"{label} mit  {confidence:.2f}%"
+    # return config.CLASS_LABELS[predicted_class]
+    return label_conf
 
 def evaluate_image(IMAGE_DIR):
 
