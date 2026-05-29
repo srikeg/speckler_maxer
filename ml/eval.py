@@ -20,7 +20,8 @@ def classify_single_image(image_path):
     label = config.CLASS_LABELS[predicted_class]
     label_conf = f"{label} mit  {confidence:.2f}%"
     # return config.CLASS_LABELS[predicted_class]
-    return label_conf
+    # return label_conf
+    return label, confidence
 
 def evaluate_image(IMAGE_DIR):
 

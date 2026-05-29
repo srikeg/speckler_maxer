@@ -261,7 +261,7 @@ def index():
 
         if action == "scan":
             try:
-                material , image_path = call_material_scanner()
+                material ,  confidence, image_path = call_material_scanner()
                 if not material:
                     error = "Der Scanner hat kein Material zurueckgegeben."
             except Exception as e:

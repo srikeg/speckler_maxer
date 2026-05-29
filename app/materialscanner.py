@@ -20,5 +20,6 @@ def scan():
     # print("Image saved at:", saved_path)
 
     print(f"Image saved at {image_path}")
+    label, confidence = eval.classify_single_image(image_path)
 
-    return eval.classify_single_image(image_path), image_path
+    return  label, confidence, image_path
