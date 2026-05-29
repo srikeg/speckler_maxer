@@ -11,7 +11,8 @@ def scan():
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     image_path = f"{outdir}/snapshot_{timestamp}.jpg"
 
-    script_path = os.path.expanduser("~/speckler_maxer/scripts/pi_one_snapshot.sh")
+    script_path = os.path.expanduser("~/speckler_maxer/scripts/save_snapshot.sh")
+    # script_path = os.path.expanduser("~/speckler_maxer/scripts/pi_one_snapshot.sh")
     result = subprocess.run([script_path, image_path], capture_output=True, text=True)
 
     # print(f"result: {result}")

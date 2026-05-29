@@ -9,6 +9,7 @@ def get_material_parameters(
         thickness: float,
         machine_type: str,
         file_path: str = "database.csv"
+        # file_path: str = "/home/group1/speckler_maxer/app/database.csv"
 ) -> dict:
     """
     Sucht in der CSV nach Prozessparametern.

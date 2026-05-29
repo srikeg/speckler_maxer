@@ -11,7 +11,7 @@ import config
 
 # timestamp = datetime.now().strftime("%m%d-%H%M%S")
 # output_dir = f"output_data2/{timestamp}"
-output_dir = "output"
+output_dir = f"output_{timestamp}"
 os.makedirs(output_dir, exist_ok=True)
 print(f"Saving outputs to: {output_dir}")
 
