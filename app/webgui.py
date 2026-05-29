@@ -84,6 +84,12 @@ HTML_TEMPLATE = """
                 </button>
             </div>
 
+{% if image_url %}
+    <div class="w-full flex justify-center my-4">
+        <img src="{{ image_url }}" alt="Letztes Scan-Bild" class="rounded-lg border border-zinc-700 max-w-full h-auto shadow-lg">
+    </div>
+{% endif %}
+
             <div>
                 <label for="material_input" class="block text-sm font-medium text-zinc-400 mb-1.5">Materialbezeichnung (Eingabe oder Scan-Ergebnis)</label>
                 <input type="text" id="material_input" name="material_input" value="{{ material }}" placeholder="z.B. Acryl, Sperrholz"
@@ -255,12 +261,13 @@ def index():
 
         if action == "scan":
             try:
-                material = call_material_scanner()
+                material , image_path = call_material_scanner()
                 if not material:
                     error = "Der Scanner hat kein Material zurueckgegeben."
             except Exception as e:
                 error = f"Fehler bei der Materialerkennung: {e}"
                 material = ""
+                image_path = None
 
         elif action == "save_new_material":
             mat_name = request.form.get("new_material_name")

@@ -20,4 +20,4 @@ def scan():
 
     print(f"Image saved at {image_path}")
 
-    return eval.classify_single_image(image_path)
+    return eval.classify_single_image(image_path), image_path
